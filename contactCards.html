@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link rel="stylesheet" type="text/css" href="contact_cards.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <script>
+  $(document).ready(function(){
+    
+    var counter = 0;
+    var description = "";
+    
+    $(document).on("click",".buttonAdd",function(){
+      var firstName = $(".inputFirst").val();
+      var lastName = $(".inputLast").val();
+      description = $(".inputDes").val();
+      $(".cardStart").append("<div class='example' alt='"+description+"'>"+firstName+" "+lastName+"<p class='clickDes'>Click for description</p></div>");
+    });
+    
+    $(document).on("click",".example",function(){
+      $(this).text($(this).attr("alt")) 
+    });
+    
+  });
+  </script>
+
+  <style>
+  body {
+  width: 1000px;
+  margin: 0px;
+  padding: 0px;
+}
+.page-left {
+  border: 1px solid black;
+  padding: 30px;
+  width: 300px;
+  height: 700px;
+  display: inline-block;
+  vertical-align: top;
+}
+.page-left p{
+  margin: 5px;
+}
+.inputFirst {
+  width: 175px;
+}
+.inputLast {
+  margin-left: 2px;
+  width: 175px;
+}
+.inputDes {
+  margin: 0px;
+  width: 260px;
+  height: 100px;
+}
+.buttonAdd {
+  margin-top: 5px;
+  padding: 5px 20px;
+}
+
+.page-right {
+  border: 1px solid black;
+  width: 600px;
+  height: 760px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cardStart {
+  margin: 40px;  
+}
+
+.example {
+  margin: 10px;
+  width: 300px;
+  height: 100px;
+  padding-top: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
+  background-color: lightyellow;
+  box-shadow: 1px 1px 5px black;
+  text-align: center;
+  font-size: 18px;
+  color: dimgrey;
+}
+
+.clickDes {
+  margin-top: 30px;
+  font-size: 11px;
+  color: grey;
+}
+  </style>
+
+</head>
+<body>
+
+  <div class="page-left">
+    <p>First Name: <input type="text" class="inputFirst"></p>
+    <p>Last Name: <input type="text" class="inputLast"></p>
+    <p>Description: </p><input type="text" class="inputDes" placeholder="Enter Job Description Here">
+    <button type="button" class="buttonAdd">Add User</button>
+  </div>
+  
+  <div class="page-right">
+    <div class="cardStart"></div>
+  </div>
+</body>
+</html>
